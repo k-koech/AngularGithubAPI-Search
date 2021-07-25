@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  githubApiKey: 'EUBrDJCRDrolELyi4qRbuu0PShnDyRcf'
 };

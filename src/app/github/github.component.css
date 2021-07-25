@@ -1,0 +1,25 @@
+*
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.profile .profile-image
+{
+     /* background-color: violet; */
+     padding: 1em;
+     text-align: center;
+}
+.profile .profile-image img
+{
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+}
+.profile .username
+{
+    color: rgb(160, 160, 160) !important;
+}
+
+p span{
+    color: rgb(160, 160, 160);
+    margin-right: 2em;
+}
