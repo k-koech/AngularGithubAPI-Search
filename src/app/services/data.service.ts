@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DataService {
   git = new BehaviorSubject<any>([]);
+  gitRepo = new BehaviorSubject<any>([]);
 
   constructor(private http:HttpClient) { }
   getGithubUser()
@@ -36,11 +37,11 @@ export class DataService {
 
   getGithubRepo()
   {
-    return this.http.get(`https://api.github.com/users/k-koech/repos?access_token=${environment.access_token}`)
-      .subscribe((response: any)=>{
-        this.git.next(response);
-         console.log(response);
-      });
+    return this.http.get(`https://api.github.com/users/k-koech/repos?access_token=${environment.access_token}`);
+      // .subscribe((response: any)=>{
+      //   this.gitRepo.next(response);
+      //    console.log(response);
+      // });
   }
 
   

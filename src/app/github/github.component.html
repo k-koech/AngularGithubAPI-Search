@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <div class="container profile">
 <div class="row">
     <div class="col-md-4">
@@ -9,8 +11,19 @@
         <h5>{{ git.bio }}</h5>
         <p>{{ git.followers }} <span>Followers</span> {{ git.following }} <span>Following</span></p>
     </div>
-    
-    <div class="col-md-8 bg-white">
+
+    <div class="col-md-8">
+     <h4>Repositories</h4>
+     
+     <div class="container" >
+        <div class="row"   >
+            <div class="col-md-5 m-1 repo-col" *ngFor="let repo of  repos">
+                <h6>{{ repo.name }}</h6>
+                <p><a href="{{ repo.homepage }}">View Site <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+                            
+            </div>
+        </div>
+     </div>
      
     </div>
 </div>

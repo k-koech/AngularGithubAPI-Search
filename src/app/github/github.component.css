@@ -1,6 +1,12 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer');
 *
 {
     font-family: Arial, Helvetica, sans-serif;
+}
+a
+{
+    text-decoration: none;
+    color: rgb(207, 207, 207);
 }
 .profile .profile-image
 {
@@ -22,4 +28,14 @@
 p span{
     color: rgb(160, 160, 160);
     margin-right: 2em;
+}
+.repo-col
+{
+    padding: 1em;
+    border: 1px solid rgb(109, 109, 109);
+    border-radius: 0.3em;
+}
+.repo-col p a
+{
+    font-size: 12px;
 }
