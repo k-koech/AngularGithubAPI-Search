@@ -14,13 +14,13 @@
 
     <div class="col-md-8">
      <h4>Repositories</h4>
-     
-     <div class="container" >
-        <div class="row"   >
+      
+     <div class="container repos-container">
+        <div class="row">
             <div class="col-md-5 m-1 repo-col" *ngFor="let repo of  repos">
                 <h6>{{ repo.name }}</h6>
-                <p><a href="{{ repo.homepage }}">View Site <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
-                            
+                <p><a href="GET {{ repo.homepage }}">View Site <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+                <p><i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> {{ repo.language }}</p>      
             </div>
         </div>
      </div>
