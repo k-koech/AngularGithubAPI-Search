@@ -10,6 +10,10 @@
         <p class="username">{{ git.login }}</p>
         <h5>{{ git.bio }}</h5>
         <p>{{ git.followers }} <span>Followers</span> {{ git.following }} <span>Following</span></p>
+        <hr>  
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ git.location }}</p> 
+        <p> Joined {{ git.created_at }} ago</p> 
+        <p> Updated {{ git.updated_at }}</p> 
     </div>
 
     <div class="col-md-8">
@@ -20,7 +24,8 @@
             <div class="col-md-5 m-1 repo-col" *ngFor="let repo of  repos">
                 <h6>{{ repo.name }}</h6>
                 <p><a href="GET {{ repo.homepage }}">View Site <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
-                <p><i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> {{ repo.language }}</p>      
+                <p><i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> {{ repo.language }}</p>  
+               
             </div>
         </div>
      </div>
