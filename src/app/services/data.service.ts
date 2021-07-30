@@ -16,6 +16,9 @@ export class DataService {
   {
     return this.http.get(`https://api.github.com/users/k-koech?access_token=${environment.access_token}`)
       .subscribe((response: any)=>{
+
+        
+
         this.git.next(response);
         console.log(response);
       });
