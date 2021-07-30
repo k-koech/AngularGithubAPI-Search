@@ -1,5 +1,5 @@
 # Github Search
-#### The app is about search of Github usernames and repos in Github, 17/07/2021
+#### The app is about search of Github usernames and repos in Github, 30/07/2021
 #### **By Kelvin Kipchumba**
 ## Project Description
     This project was generated with Angular CLI version 12.1.1.
