@@ -40,6 +40,14 @@ p span{
     border: 1px solid rgb(109, 109, 109);
     border-radius: 0.3em;
 }
+.repo-col p
+{
+    margin: 0.2em;
+}
+.repo-col .description
+{
+    color: rgb(160, 160, 160);
+}
 .repo-col p a
 {
     font-size: 12px;

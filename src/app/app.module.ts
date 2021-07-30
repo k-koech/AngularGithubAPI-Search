@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { GithubComponent } from './github/github.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchUserComponent } from './search-user/search-user.component';
+import { DateCountPipe } from './date-count.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     GithubComponent,
-    SearchUserComponent    
+    SearchUserComponent,
+    DateCountPipe    
   ],
   imports: [
     BrowserModule,
