@@ -13,3 +13,8 @@
     - Open the link after it has finished compiling it successfully.
     - And you are all done
 The application has no backend. Just frontend.
+
+## BDD
+    A user should;
+    - Search a github username.
+    - See user details and repos names.
