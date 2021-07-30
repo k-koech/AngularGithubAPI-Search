@@ -18,3 +18,6 @@ The application has no backend. Just frontend.
     A user should;
     - Search a github username.
     - See user details and repos names.
+
+## Live link
+Deployed project can be accessed here [Github Search](https://k-koech.github.io/Angular-Quotes/)
