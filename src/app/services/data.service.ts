@@ -17,18 +17,17 @@ export class DataService {
     return this.http.get(`https://api.github.com/users/k-koech?access_token=${environment.access_token}`)
       .subscribe((response: any)=>{
         this.git.next(response);
-
+        console.log(response);
       });
   }
 
-  searchGithubUser(User: string)
+  searchGithubUser(gifName: string)
   {
-    return this.http.get(`https://api.github.com/users/${User}?access_token=${environment.access_token}`)
+    return this.http.get(`https://api.github.com/users/${gifName}?access_token=${environment.access_token}`)
     .subscribe((response: any)=>{
       this.git.next(response)
-      return this.http.get(`https://api.github.com/users/${User}/repos?access_token=${environment.access_token}`);
     });
-
+  
   }
   
   getGits()
