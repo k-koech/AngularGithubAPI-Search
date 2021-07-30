@@ -21,3 +21,21 @@ The application has no backend. Just frontend.
 
 ## Live link
 Deployed project can be accessed here [Github Search](https://k-koech.github.io/AngularGithubAPI-Search/)
+
+## Known Bugs
+    The application works perfectly well, no bugs.
+
+## Technologies used
+    - HTML
+    - CSS
+    - Bootstrap
+    - Angular
+
+## Support and contact details
+    - email :: koechkelvin97@gmail.com
+    - phone :: +254725801772
+
+### License
+*Licenced under the [MT-licence](https://github.com/k-koech/AngularGithubAPI-Search/blob/master/LICENSE.md)*
+Copyright (c) 2021 **Kelvin Kipchumba
+
