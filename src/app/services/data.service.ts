@@ -9,28 +9,30 @@ import { environment } from 'src/environments/environment';
 export class DataService {
   git = new BehaviorSubject<any>([]);
   gitRepo = new BehaviorSubject<any>([]);
+  public username:string = "k-koech";
 
   constructor(private http:HttpClient) { }
 
-  getGithubUser()
+  searchGithubUser(usernames: string)
   {
-    return this.http.get(`https://api.github.com/users/k-koech?access_token=${environment.access_token}`)
+    // this.username = usernames;
+    // return this.http.get(`https://api.github.com/users/${this.username}?access_token=${environment.access_token}`)
+    // .subscribe((response: any)=>{
+    //   this.git.next(response)
+
+    // });
+    // this.getGithubUser();
+    this.getGithubRepo();
+  }
+
+  public getGithubUser()
+  {
+    return this.http.get(`https://api.github.com/users/${this.username}?access_token=${environment.access_token}`)
       .subscribe((response: any)=>{
-
-        
-
         this.git.next(response);
         console.log(response);
       });
-  }
-
-  searchGithubUser(gifName: string)
-  {
-    return this.http.get(`https://api.github.com/users/${gifName}?access_token=${environment.access_token}`)
-    .subscribe((response: any)=>{
-      this.git.next(response)
-    });
-  
+      
   }
   
   getGits()
@@ -41,12 +43,19 @@ export class DataService {
 
   getGithubRepo()
   {
-    return this.http.get(`https://api.github.com/users/k-koech/repos?access_token=${environment.access_token}`);
-      // .subscribe((response: any)=>{
-      //   this.gitRepo.next(response);
-      //    console.log(response);
-      // });
+    return this.http.get(`https://api.github.com/users/${this.username}/repos?access_token=${environment.access_token}`)
+      .subscribe((response: any)=>{
+        this.gitRepo.next(response);
+         console.log(response);
+      });
   }
+
+  getRepos()
+    {
+      return this.gitRepo.asObservable();
+
+    }
+  
 
   
 }

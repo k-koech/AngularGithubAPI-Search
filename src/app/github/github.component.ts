@@ -12,28 +12,32 @@ export class GithubComponent implements OnInit, OnDestroy {
   git:any;
   repos:any;
   subscription: Subscription = new Subscription;
+  subs: Subscription = new Subscription;
 
 constructor( private dataService:DataService) 
 { }
 
 ngOnInit(): void  
 {
-  this.dataService.getGithubUser();
+ 
   // interface ApiResponse
   //   {
   //     name:string;
   //     username:string;
-  //   }
+  //   } 
+  this.dataService.getGithubUser();
   this.subscription =  this.dataService.getGits()
   .subscribe((response: any) => {
         this.git = response;
       });
       
-   this.dataService.getGithubRepo()
-      .subscribe((response: any) => {
-         console.log("Data", response);
-         this.repos= response;
-      });
+   this.dataService.getGithubRepo();
+
+   this.subs =  this.dataService.getRepos()
+   .subscribe((response: any) => {
+         this.git = response;
+       });
+     
  
   }
   
@@ -41,6 +45,7 @@ ngOnInit(): void
   ngOnDestroy()
   {
      this.subscription.unsubscribe();
+     this.subs.unsubscribe();
   }
 
 
