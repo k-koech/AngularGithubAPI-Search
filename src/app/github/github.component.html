@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
 <div class="container-fluid profile">
+<app-search-user></app-search-user>
 <div class="row">
     <div class="col-md-4 bg-whitde px-5">
         <div class="container">
@@ -13,7 +15,7 @@
         <p>{{ user.followers }} <span>Followers</span> {{ user.following }} <span>Following</span></p>
         <hr>  
         <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ user.location }}</p> 
-        <p>Joined {{ user.created_at|date|dateCount }}</p> 
+        <p>Joined {{ user.created_at|dateCount }}</p> 
         <p>Updated <span>{{ user.updated_at|date }}</span></p>
     </div> 
     </div>
