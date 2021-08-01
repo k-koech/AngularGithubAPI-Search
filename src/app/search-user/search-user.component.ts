@@ -18,7 +18,7 @@ export class SearchUserComponent implements OnInit {
     if(searchTerm !== "")
     {
       this.dataService.searchGithubUser(searchTerm);
-      // this.dataService.getGithubRepo(searchTerm);
+      // this.dataService.getGithubRepo(searchTerm)
     }
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -11,28 +12,42 @@ export class DataService {
   gitRepo = new BehaviorSubject<any>([]);
   public username:string = "k-koech";
 
-  constructor(private http:HttpClient) { }
-
-  searchGithubUser(usernames: string)
-  {
-    // this.username = usernames;
-    // return this.http.get(`https://api.github.com/users/${this.username}?access_token=${environment.access_token}`)
-    // .subscribe((response: any)=>{
-    //   this.git.next(response)
-
-    // });
-    // this.getGithubUser();
-    this.getGithubRepo();
+  constructor(private http:HttpClient) { 
+    
   }
 
-  public getGithubUser()
+ public getGithubUser()
   {
-    return this.http.get(`https://api.github.com/users/${this.username}?access_token=${environment.access_token}`)
+    interface UserApiResponse
+    {
+      name: string;
+      avatar_url: string;
+      login: string;
+      bio: string;
+      location: string;
+      followers: number;
+      following: number;
+      created_at: Date;
+      updated_at:Date;
+      public_repos:number;
+    }
+
+    return this.http.get<UserApiResponse>(`https://api.github.com/users/${this.username}?access_token=${environment.access_token}`)
       .subscribe((response: any)=>{
         this.git.next(response);
         console.log(response);
       });
-      
+  }
+
+  
+  searchGithubUser(username: string)
+  {
+    return this.http.get(`https://api.github.com/users/${username}?access_token=${environment.access_token}`)
+    .subscribe((response: any)=>{
+      this.git.next(response); 
+      this.searchUserRepo(username);   
+    });
+  
   }
   
   getGits()
@@ -43,18 +58,38 @@ export class DataService {
 
   getGithubRepo()
   {
-    return this.http.get(`https://api.github.com/users/${this.username}/repos?access_token=${environment.access_token}`)
-      .subscribe((response: any)=>{
-        this.gitRepo.next(response);
-         console.log(response);
-      });
+    interface RepoApiResponse
+    {
+      name: string;
+      description: string;
+      homepage: string;
+      language: string;
+      url: string;
+      forks: number;
+      watchers: number;
+    }
+
+    return this.http.get<RepoApiResponse>(`https://api.github.com/users/${this.username}/repos?access_token=${environment.access_token}`)
+    .subscribe((response: any)=>{
+      this.gitRepo.next(response);
+      console.log(response)
+    });
+  }
+
+  searchUserRepo(username: string)
+  {
+    return this.http.get(`https://api.github.com/users/${username}/repos?access_token=${environment.access_token}`)
+    .subscribe((response: any)=>{
+      this.gitRepo.next(response);
+       console.log(response);
+    });
   }
 
   getRepos()
-    {
-      return this.gitRepo.asObservable();
+  {
+    return this.gitRepo.asObservable();
 
-    }
+  }
   
 
   

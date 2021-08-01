@@ -1,9 +1,9 @@
 <div class="container mt-3">
     <div class="input-group mb-3 ">
-    <input type="text" class="form-control" placeholder="Enter Github username and press enter to Search" #gif (keyup.enter)="search(gif.value)">
-    <!-- <div class="input-group-append">
-        <span class="input-group-text" id="basic-addon2">Search</span>
-    </div> -->
+    <input type="text" class="form-control" placeholder="Enter Github username and press enter to Search" #user (keyup.enter)="search(user.value)">
+    <div class="input-group-append">
+        <button (click)="search(user.value)" class="btn btn-secondary">Search</button>
+    </div>
     </div>
 </div>
 

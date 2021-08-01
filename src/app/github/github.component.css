@@ -28,11 +28,13 @@ a
 p span{
     color: rgb(160, 160, 160);
     margin-right: 2em;
+    
 }
+
 .repos-container
 {
     max-height: 40em !important;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 .repo-col
 {

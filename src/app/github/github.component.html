@@ -5,33 +5,60 @@
     <div class="col-md-4 bg-whitde px-5">
         <div class="container">
         <div class="profile-image">
-            <img [src]="git.avatar_url" class="img-fluid" alt="img">
+            <img [src]="user.avatar_url" class="img-fluid" alt="img">
         </div>
-        <h4>{{ git.name }}</h4>
-        <p class="username">{{ git.login }}</p>
-        <h5>{{ git.bio }}</h5>
-        <p>{{ git.followers }} <span>Followers</span> {{ git.following }} <span>Following</span></p>
+        <h4>{{ user.name }}</h4>
+        <p class="username">{{ user.login }}</p>
+        <h5>{{ user.bio }}</h5>
+        <p>{{ user.followers }} <span>Followers</span> {{ user.following }} <span>Following</span></p>
         <hr>  
-        <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ git.location }}</p> 
-        <p>Joined {{ git.created_at|date|dateCount }} days ago</p> 
-        <p>Updated <span>{{ git.updated_at|date }}</span></p>
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ user.location }}</p> 
+        <p>Joined {{ user.created_at|date|dateCount }} days ago</p> 
+        <p>Updated <span>{{ user.updated_at|date }}</span></p>
     </div> 
     </div>
 
     <div class="col-md-8">
-     <h4>Repositories</h4>
+     <h4>Repositories  <span class="badge bg-primary rounded-pill">{{ user.public_repos }}</span></h4>
       
-     <div class="container-fluid repos-container">
-        <div class="row">
+     <div class="container-fluid repos-container" *ngIf="user.public_repos>0; else elseBlock">
+        <div class="row" >
             <div class="col-md-5 m-1  repo-col" *ngFor="let repo of  repos">
-                <h6>{{ repo.name }}</h6>
+                <div class="row">
+                    <div class="col-md-9 mt-auto">
+                        <h6><a href="{{ repo.clone_url }}"> {{ repo.name }}</a></h6>
+                    </div>
+                    <div class="col-md-3"><p><i class="fa fa-code-fork" aria-hidden="true"></i> 
+                        {{ repo.forks }}</p>  
+                    </div>
+                </div>
+                
+
                 <p class="description">{{ repo.description }}</p>
-                <p><a href="GET {{ repo.homepage }}">View Site <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
-                <p><i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> {{ repo.language }}</p>  
+                <p><a href="{{ repo.homepage }}">View Site <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <p><i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> {{ repo.language }}</p>  
+                    </div>
+                    <div class="col-md-7">
+                        <p>Watchers <span class="badge bg-secondary text-white rounded-pill">{{ repo.watchers }}</span></p>  
+                    </div> 
+                </div>
+                
                
             </div>
         </div>
+
+       
      </div>
+      <div class="container">
+        <ng-template #elseBlock>
+            <div class="alert alert-danger" role="alert">
+                The user has no Repository at the moment!
+              </div>
+        </ng-template>
+        </div>
      
     </div>
 </div>
