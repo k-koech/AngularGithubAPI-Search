@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 export class DataService {
   git = new BehaviorSubject<any>([]);
   gitRepo = new BehaviorSubject<any>([]);
+  repos:any;
   public username:string = "k-koech";
 
   constructor(private http:HttpClient) { 
@@ -55,7 +56,7 @@ export class DataService {
     return this.git.asObservable();
   }
 
-// REPOSITORIES
+// USER REPOSITORIES
   getGithubRepo()
   {
     interface RepoApiResponse
@@ -88,6 +89,17 @@ export class DataService {
     return this.gitRepo.asObservable();
 
   }
+
+   // REPOSITORIES
+  //  public getGithubRepos()
+  //  {
+  //    return this.http.get(`https://api.github.com/users/k-koech/repos?access_token=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`)
+  //    .subscribe(res=>{
+  //       console.log(res);
+  //        this.repos = res;
+  //      });
+  //  }
+ 
   
 
 }

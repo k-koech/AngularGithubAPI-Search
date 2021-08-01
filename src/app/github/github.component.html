@@ -21,7 +21,7 @@
     </div>
 
     <div class="col-md-8">
-     <h4>Repositories  <span class="badge bg-primary rounded-pill" *ngIf="user.public_repos>0">{{ user.public_repos }}</span></h4>
+    <h4>Repositories  <span class="badge bg-primary rounded-pill" *ngIf="user.public_repos>0">{{ user.public_repos }}</span></h4>
       
      <div class="container-fluid repos-container" *ngIf="user.public_repos>0; else elseBlock">
         <div class="row" >

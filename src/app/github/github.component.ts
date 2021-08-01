@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component,OnDestroy, OnInit} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Repository } from '../repository';
@@ -9,6 +10,7 @@ import { User } from '../user';
   templateUrl: './github.component.html',
   styleUrls: ['./github.component.css']
 })
+
 export class GithubComponent implements OnInit, OnDestroy {
   git:any;
   subscription: Subscription = new Subscription;
@@ -16,8 +18,9 @@ export class GithubComponent implements OnInit, OnDestroy {
   user!:User;
   // repos!:Repository;
   repos! :any;
+  repositories:any;
 
-constructor( private dataService:DataService) 
+constructor( private dataService:DataService, private http: HttpClient) 
 { }
 
 ngOnInit(): void  
@@ -41,6 +44,13 @@ ngOnInit(): void
        });
      
  
+
+       this.http.get(`https://api.github.com/users/k-koech/repos?access_token=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`)
+       .subscribe(res=>{
+         
+           this.repositories = res; 
+         });
+  
   }
   
   ngOnDestroy()
