@@ -22,34 +22,32 @@ constructor( private dataService:DataService)
 
 ngOnInit(): void  
 {   
+  // user
   this.dataService.getGithubUser();
  
   this.subscription =  this.dataService.getGits()
   .subscribe((response: any) => {
         this.user = new User(response.name, response.avatar_url, response.login, response.bio,response.location, response.followers, response.following,
-          response.created_at, response.updated_at,response.public_repos
-          
+          response.created_at, response.updated_at,response.public_repos 
         );
       });
       
-
+// Repo
    this.dataService.getGithubRepo();
 
    this.subs =  this.dataService.getRepos()
    .subscribe((response: any) => {
-        
          this.repos = response;
        });
      
  
   }
   
-
   ngOnDestroy()
   {
      this.subscription.unsubscribe();
   }
 
-
+  
 
 }

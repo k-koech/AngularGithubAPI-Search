@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchUserComponent } from './search-user/search-user.component';
 import { DateCountPipe } from './date-count.pipe';
 import { ColorDirective } from './color.directive';
+import { RepositoriesComponent } from './repositories/repositories.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ColorDirective } from './color.directive';
     GithubComponent,
     SearchUserComponent,
     DateCountPipe,
-    ColorDirective    
+    ColorDirective,
+    RepositoriesComponent    
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,7 @@ export class DataService {
   constructor(private http:HttpClient) { 
     
   }
-
+// USER
  public getGithubUser()
   {
     interface UserApiResponse
@@ -55,7 +55,7 @@ export class DataService {
     return this.git.asObservable();
   }
 
-
+// REPOSITORIES
   getGithubRepo()
   {
     interface RepoApiResponse
@@ -72,7 +72,6 @@ export class DataService {
     return this.http.get<RepoApiResponse>(`https://api.github.com/users/${this.username}/repos?access_token=${environment.access_token}`)
     .subscribe((response: any)=>{
       this.gitRepo.next(response);
-      console.log(response)
     });
   }
 
@@ -81,7 +80,6 @@ export class DataService {
     return this.http.get(`https://api.github.com/users/${username}/repos?access_token=${environment.access_token}`)
     .subscribe((response: any)=>{
       this.gitRepo.next(response);
-       console.log(response);
     });
   }
 
@@ -92,6 +90,5 @@ export class DataService {
   }
   
 
-  
 }
 
