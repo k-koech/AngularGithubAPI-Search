@@ -6,13 +6,15 @@ import { GithubComponent } from './github/github.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchUserComponent } from './search-user/search-user.component';
 import { DateCountPipe } from './date-count.pipe';
+import { ColorDirective } from './color.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     GithubComponent,
     SearchUserComponent,
-    DateCountPipe    
+    DateCountPipe,
+    ColorDirective    
   ],
   imports: [
     BrowserModule,
