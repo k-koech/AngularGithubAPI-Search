@@ -4,7 +4,8 @@
 ## Project Description
     This project was generated with Angular CLI version 12.1.1.
     The application includes a  landing page which shows my Github name and my repositories a footer with contact details. 
-    There is also a a form to search githu uername. 
+    There is also a a form to search github username. 
+    - In the search bar you can enter the username to search and press enter of press submit button.
 
 ## Setup/Installation Requirements
     - Download a file in the code section to the desired folder
