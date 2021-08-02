@@ -8,7 +8,7 @@ import { RepositoryComponent } from './repository/repository.component';
 const routes: Routes = [
   { path: '', component: GithubComponent },
   { path: 'repos', component:RepositoryComponent },
-  { path:'**', component:NotFoundComponent},
+  { path:'**', component:GithubComponent},
 ];
 
 @NgModule({

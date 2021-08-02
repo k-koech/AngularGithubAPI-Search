@@ -42,15 +42,7 @@ ngOnInit(): void
    .subscribe((response: any) => {
          this.repos = response;
        });
-     
- 
-
-       this.http.get(`https://api.github.com/users/k-koech/repos?access_token=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`)
-       .subscribe(res=>{
-         
-           this.repositories = res; 
-         });
-  
+       
   }
   
   ngOnDestroy()
