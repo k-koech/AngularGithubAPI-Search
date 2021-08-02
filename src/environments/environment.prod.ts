@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  access_token:'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'
+  access_token:'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'
 };
