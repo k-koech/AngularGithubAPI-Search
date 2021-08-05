@@ -33,7 +33,7 @@ export class DataService {
       public_repos:number;
     }
 
-    return this.http.get<UserApiResponse>(`https://api.github.com/users/${this.username}?access_token=${environment.access_token}`)
+    return this.http.get<UserApiResponse>(`https://api.github.com/users/${this.username}?access_token=${environment.key}`)
       .subscribe((response: any)=>{
         this.git.next(response);
         console.log(response);
@@ -43,7 +43,7 @@ export class DataService {
   
   searchGithubUser(username: string)
   {
-    return this.http.get(`https://api.github.com/users/${username}?access_token=${environment.access_token}`)
+    return this.http.get(`https://api.github.com/users/${username}?access_token=${environment.key}`)
     .subscribe((response: any)=>{
       this.git.next(response); 
       this.searchUserRepo(username);   
@@ -70,7 +70,7 @@ export class DataService {
       watchers: number;
     }
 
-    return this.http.get<RepoApiResponse>(`https://api.github.com/users/${this.username}/repos?access_token=${environment.access_token}`)
+    return this.http.get<RepoApiResponse>(`https://api.github.com/users/${this.username}/repos?access_token=${environment.key}`)
     .subscribe((response: any)=>{
       this.gitRepo.next(response);
     });
@@ -78,7 +78,7 @@ export class DataService {
 
   searchUserRepo(username: string)
   {
-    return this.http.get(`https://api.github.com/users/${username}/repos?access_token=${environment.access_token}`)
+    return this.http.get(`https://api.github.com/users/${username}/repos?access_token=${environment.key}`)
     .subscribe((response: any)=>{
       this.gitRepo.next(response);
     });
