@@ -4,14 +4,46 @@
     <div class="card-header">  Repositories </div>
     <div class="card-body">
         <!-- <h5 class="card-title">Special title treatment</h5> -->
-          <div class="container" *ngFor="let repo of repositories">
-            <div class="row">
-               <div class="row bg-success"> <h5> {{ repo.name }} </h5> </div>
-               <div class="row bg-secondary"> <p>{{ repo.description}} </p>  </div>
-               <div class="row "> <p> {{ repo.language }}</p> </div>
+            <div class="row p-2">
+
+                <div class="col-md-5 repos mb-2 " *ngFor="let repo of repositories">
+                    <div class="row">
+                        <div class="col-md-9 mt-auto">
+                            <h5><a href=""> {{ repo.name }}</a></h5>
+                        </div>
+                        <div class="col-md-3" appColor>
+                            <p><i class="fa fa-code-fork" aria-hidden="true"></i> {{ repo.forks }}</p>  
+                        </div>
+                    </div>
+                    <p class="description">
+                       <span *ngIf="repo.description!=null; else elseBlock">{{ repo.description }}</span> 
+                       <ng-template class="description" #elseBlock>No description</ng-template>
+                    </p>
+                  
+                    <p class="mt--1"><a href="{{ repo.homepage }}">View Site <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <p><i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> {{ repo.language }}</p>  
+                        </div>
+                        <div class="col-md-7">
+                            <p>Watchers <span class="badge bg-secondary text-white rounded-pill">{{ repo.watchers }}</span></p>  
+                        </div> 
+                    </div>
+                </div> 
+                <!-- -->
+                <!-- <p><a href="{{ repo.homepage }}">View Site <i class="fa fa-external-link" aria-hidden="true"></i></a></p> -->
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <!-- <p><i class="fa fa-dot-circle-o text-danger" aria-hidden="true"></i> {{ repo.language }}</p>   -->
+                    </div>
+                    <div class="col-md-7">
+                        <!-- <p>Watchers <span class="badge bg-secondary text-white rounded-pill">{{ repo.watchers }}</span></p>   -->
+                    </div> 
+                </div>
+
             </div>
      
-          </div>
         <a href="#" class="btn btn-primary">Next</a>
     </div>
     </div>
